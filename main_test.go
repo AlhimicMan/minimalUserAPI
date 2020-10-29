@@ -151,7 +151,6 @@ func runCases(t *testing.T, ts *httptest.Server, cases []Case) {
 
 		caseName := fmt.Sprintf("case %d: [%s] %s %s", idx, item.Method, item.Path, item.Headers)
 
-		// TODO: Don't forget about headers!
 		if item.Method == "" || item.Method == http.MethodGet {
 			req, err = http.NewRequest(item.Method, ts.URL+item.Path, nil)
 			if err == nil {
