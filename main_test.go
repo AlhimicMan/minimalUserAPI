@@ -153,7 +153,7 @@ func runCases(t *testing.T, ts *httptest.Server, cases []Case) {
 
 		if item.Method == "" || item.Method == http.MethodGet {
 			req, err = http.NewRequest(item.Method, ts.URL+item.Path, nil)
-			if err == nil {
+			if err != nil {
 				t.Fatalf("case %d: Error preparing request: %v", idx, err)
 			}
 			if req == nil {
@@ -173,7 +173,7 @@ func runCases(t *testing.T, ts *httptest.Server, cases []Case) {
 			}
 			reqBody := bytes.NewReader(data)
 			req, err = http.NewRequest(item.Method, ts.URL+item.Path, reqBody)
-			if err == nil {
+			if err != nil {
 				t.Fatalf("case %d: Error preparing request: %v", idx, err)
 			}
 			if req == nil {
